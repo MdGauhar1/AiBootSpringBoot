@@ -1,18 +1,15 @@
-# Start with a base JDK image
 FROM openjdk:17-jdk-slim
 
-# Set working directory inside container
 WORKDIR /app
 
-# Copy pom.xml and download dependencies
-COPY pom.xml .
-COPY mvnw .
-COPY .mvn .mvn
-RUN ./mvnw dependency:go-offline
-
-# Copy source code and build the project
+# Copy everything and build
 COPY . .
-RUN ./mvnw package -DskipTests
 
-# Run the Spring Boot app
-CMD ["java", "-jar", "target/*.jar"]
+# Make Maven wrapper executable
+RUN chmod +x mvnw
+
+# Build the app and skip tests
+RUN ./mvnw clean package -DskipTests
+
+# Run the jar (exact name required)
+CMD ["java", "-jar", "target/redAi-0.0.1-SNAPSHOT.jar"]
