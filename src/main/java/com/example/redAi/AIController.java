@@ -12,7 +12,7 @@ import java.util.*;
 @CrossOrigin(origins = "https://mdgauhar1.github.io")
 public class AIController {
 
-    private final String OPENROUTER_API_KEY = "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"; // 🔑 paste your key here
+    private final String OPENROUTER_API_KEY = System.getenv("OPENROUTER_API_KEY");
     private final String OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions";
 
     // 👉 Add this method to handle preflight (CORS check)
