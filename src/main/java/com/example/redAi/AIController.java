@@ -9,7 +9,7 @@ import java.util.*;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "https://mdgauhar1.github.io")
 public class AIController {
 
     private final String OPENROUTER_API_KEY = "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"; // 🔑 paste your key here
@@ -24,7 +24,7 @@ public class AIController {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
         headers.set("Authorization", "Bearer " + OPENROUTER_API_KEY);
-        headers.set("HTTP-Referer", "http://localhost:4200"); // or any placeholder
+        headers.set("HTTP-Referer", "https://mdgauhar1.github.io"); // or any placeholder
         headers.set("X-Title", "AI Voice App");
 
         Map<String, Object> payload = new HashMap<>();
